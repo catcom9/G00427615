@@ -33,5 +33,5 @@ def saveRequest(new_record: RecordCreate,
 @app.get("/requests",
          response_model=list[RecordRead])
 def readRequest(db: Session = Depends(get_db)):
-    statment = select(MaintenanceDB.order_by(MaintenanceDB.id))
+    statment = select(MaintenanceDB)
     return db.execute(statment).scalars().all()
